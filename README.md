@@ -6,9 +6,6 @@ CANTech는 자동차 네트워크 프로토콜 중 하나인 CAN의 원리를 �
 
 ## can_tech 시작하기
 
-### 전제 조건
-* TBD
-
 ### 설치
 1. can_tech 소스 다운로드
 
@@ -16,13 +13,40 @@ CANTech는 자동차 네트워크 프로토콜 중 하나인 CAN의 원리를 �
 git clone https://github.com/jenice1114/can_tech.git
 ```
 
-* TBD
+2. 설치 스크립트 실행
+
+```bash
+cd script
+
+./install.sh
+```
 
 ### 빌드
-* TBD
+
+```bash
+mkdir build
+cd build
+
+# Debug 빌드
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+
+# Release 빌드
+cmake -DCMAKE_BUILD_TYPE=Release ..
+
+make
+```
 
 ### 실행
-* TBD
+
+```bash
+# Debug 빌드 시
+cd build/Debug
+
+# Release 빌드 시
+cd build/Release
+
+./can_tech
+```
 
 ***
 
@@ -34,9 +58,6 @@ CANTech is a program designed to help users learn the principles of CAN, one of 
 
 ## Getting Started
 
-### Prerequisites
-* TBD
-
 ### Setup
 1. Download the can_tech source
 
@@ -44,10 +65,37 @@ CANTech is a program designed to help users learn the principles of CAN, one of 
 git clone https://github.com/jenice1114/can_tech.git
 ```
 
-* TBD
+2. Install the script
+
+```bash
+cd script
+
+./install.sh
+```
 
 ### Build
-* TBD
+
+```bash
+mkdir build
+cd build
+
+# Debug Mode
+cmake -DCMAKE_BUILD_TYPE=Debug ..
+
+# Release Mode
+cmake -DCMAKE_BUILD_TYPE=Release ..
+
+make
+```
 
 ### Run
-* TBD
+
+```bash
+# Debug Mode
+cd build/Debug
+
+# Release Mode
+cd build/Release
+
+./can_tech
+```
