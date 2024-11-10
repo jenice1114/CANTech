@@ -9,5 +9,6 @@
 #include <ncurses.h>
 
 void can_bus_display();
+int get_node_count();
 
 #endif // CAN_TECH_CAN_BUS_UI_H

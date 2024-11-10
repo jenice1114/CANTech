@@ -7,7 +7,11 @@
 #include "can_bus_ui.h"
 
 int main() {
+  // Create a can bus ui.
   can_bus_display();
+
+  // Get node count from user.
+  int nodes = get_node_count();
 
   pthread_t can_bus_id;
 

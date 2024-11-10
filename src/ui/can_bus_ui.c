@@ -1,5 +1,7 @@
 #include "can_bus_ui.h"
 
+#define MAX_NODES 5
+
 void can_bus_display() {
   initscr();
   noecho();
@@ -35,4 +37,34 @@ void can_bus_display() {
   mvhline(line_below, line_x, '=', line_length);
 
   refresh();
+}
+
+int get_node_count() {
+  int node = 0;
+
+  curs_set(TRUE);
+  while (1) {
+    move(LINES - 3, 2);
+    clrtoeol();
+    mvprintw(LINES - 3, 2, "Enter the number of nodes (max %d): ", MAX_NODES);
+    refresh();
+
+    echo();
+    scanw("%d", &node);
+
+    if (node >= 1 && node <= MAX_NODES) {
+      break;
+    } else {
+      mvprintw(LINES - 2, 2, "Help:: Invalid input. (1 ~ %d)", MAX_NODES);
+      refresh();
+    }
+  }
+
+  move(LINES - 3, 2);
+  clrtoeol();
+  move(LINES - 2, 2);
+  clrtoeol();
+  refresh();
+
+  return node;
 }
