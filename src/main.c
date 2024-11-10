@@ -4,7 +4,7 @@
 #include <unistd.h>
 
 #include "can_bus.h"
-#include "can_bus_ui.h"
+#include "can_tech_ui.h"
 
 int main() {
   // Create a can bus ui.

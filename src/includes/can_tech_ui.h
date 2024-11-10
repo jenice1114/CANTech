@@ -1,5 +1,5 @@
-#ifndef CAN_TECH_CAN_BUS_UI_H
-#define CAN_TECH_CAN_BUS_UI_H
+#ifndef CAN_TECH_CAN_TECH_UI_H
+#define CAN_TECH_CAN_TECH_UI_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,4 +11,4 @@
 void can_bus_display();
 int get_node_count();
 
-#endif // CAN_TECH_CAN_BUS_UI_H
+#endif // CAN_TECH_CAN_TECH_UI_H

@@ -1,4 +1,4 @@
-#include "can_bus_ui.h"
+#include "can_tech_ui.h"
 
 #define MAX_NODES 5
 

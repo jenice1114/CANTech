@@ -22,7 +22,7 @@ set(CAN_TECH_BUS_SRCS
 source_group(bus FILES ${CAN_TECH_BUS_SRCS})
 
 set(CAN_TECH_UI_SRCS
-  ui/can_bus_ui.c
+  ui/can_tech_ui.c
 )
 source_group(ui FILES ${CAN_TECH_UI_SRCS})
 
