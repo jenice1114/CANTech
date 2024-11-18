@@ -21,6 +21,11 @@ set(CAN_TECH_BUS_SRCS
 )
 source_group(bus FILES ${CAN_TECH_BUS_SRCS})
 
+set(CAN_TECH_NODE_SRCS
+  node/can_node.c
+)
+source_group(node FILES ${CAN_TECH_NODE_SRCS})
+
 set(CAN_TECH_UI_SRCS
   ui/can_tech_ui.c
 )
@@ -29,6 +34,7 @@ source_group(ui FILES ${CAN_TECH_UI_SRCS})
 set(CAN_TECH_SRCS
   ${CAN_TECH_MAIN_SRCS}
   ${CAN_TECH_BUS_SRCS}
+  ${CAN_TECH_NODE_SRCS}
   ${CAN_TECH_UI_SRCS}
 )
 
