@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <pthread.h>
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -13,14 +12,8 @@ int main() {
   // Get node count from user.
   int nodes = get_node_count();
 
-  pthread_t can_bus_id;
-
-  if (pthread_create(&can_bus_id, NULL, can_bus, NULL) != 0) {
-    perror("Failed to create CAN Bus thread.");
-    return EXIT_FAILURE;
-  }
-
-  pthread_join(can_bus_id, NULL);
+  // Create bus thread.
+  can_bus_create();
 
   getch();
   endwin();
