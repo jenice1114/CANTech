@@ -14,7 +14,20 @@ int main() {
   int nodes = get_node_count();
 
   // Create bus thread.
-  can_bus_create();
+  while (1) {
+    if (can_bus_create()) {
+      break;
+    }
+
+    char choice;
+    printf("Failed to create CAN Bus. Do you want to retry? (y/n): ");
+    scanf(" %c", &choice);
+
+    if (choice == 'n' || choice == 'N') {
+      printf("Exiting program.\n");
+      return EXIT_FAILURE;
+    }
+  }
 
   // Create nodes thread.
   nodes_create(nodes);
