@@ -1,6 +1,11 @@
 #include "can_tech_ui.h"
 
+#include <pthread.h>
+
 #define MAX_NODES 5
+
+static pthread_mutex_t ui_lock = PTHREAD_MUTEX_INITIALIZER;
+static int current_node_count = 0;
 
 void can_bus_display() {
   initscr();
@@ -67,4 +72,27 @@ int get_node_count() {
   refresh();
 
   return node;
+}
+
+void can_node_display() {
+  int row, col;
+  getmaxyx(stdscr, row, col);
+
+  int bus_y = (row + 7) / 2;
+  int node_y = bus_y + 3;
+  int spacing = 20;
+  int node_start_x = (col - (spacing * (current_node_count - 1))) / 2;
+
+  for (int i = 0; i < current_node_count; i++) {
+    mvprintw(node_y, node_start_x + (i * spacing), "Node %d", i + 1);
+  }
+
+  refresh(); // 화면 갱신
+}
+
+void update_node_count(int nodes) {
+  pthread_mutex_lock(&ui_lock);
+  current_node_count = nodes;
+  can_node_display();
+  pthread_mutex_unlock(&ui_lock);
 }

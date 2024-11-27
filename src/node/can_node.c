@@ -4,6 +4,7 @@
 
 #include "can_node.h"
 #include "can_bus.h"
+#include "can_tech_ui.h"
 
 void nodes_create(int nodes) {
   pthread_t* node_threads = malloc(nodes * sizeof(pthread_t));
@@ -22,8 +23,8 @@ void nodes_create(int nodes) {
       free(node_ids);
       exit(EXIT_FAILURE);
     }
-    printf("Node %d thread created.\n", node_ids[i]);
   }
+  update_node_count(nodes);
 
   for (int i = 0; i < nodes; i++) {
     pthread_join(node_threads[i], NULL);
@@ -44,8 +45,6 @@ void* can_node(void* arg) {
   for (int i = 0; i < frame.dlc; i++) {
     frame.data[i] = i + node_id;
   }
-
-  printf("Node %d started.\n", node_id);
 
   while (1) {
     node_sender(&frame);

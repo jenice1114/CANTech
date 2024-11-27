@@ -10,5 +10,6 @@
 
 void can_bus_display();
 int get_node_count();
+void update_node_count(int nodes);
 
 #endif // CAN_TECH_CAN_TECH_UI_H
